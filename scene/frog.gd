@@ -3,7 +3,7 @@ class_name Frog
 
 enum Direction {LEFT, RIGHT, UP, DOWN}
 
-@export var jump_duration: float = 0.6
+@export var jump_duration: float = 0.4
 @export var on_maze: Vector2i = Vector2i(0, 0)
 @export var dir: Direction = Direction.DOWN
 
@@ -64,6 +64,13 @@ func try_to_move(new_dir: Direction) -> void:
 	tw.set_ease(jump_easings[dir])
 	tw.tween_property(self, "position", new_pos, jump_duration)
 	await tw.finished
+<<<<<<< Updated upstream
+=======
+	maze.set_fog(old_on_maze.x, old_on_maze.y, 1)
+
+	maze.set_fog(on_maze.x, on_maze.y, 0)
+
+>>>>>>> Stashed changes
 	
 	maze.set_fog(old_on_maze.x, old_on_maze.y, maze.max_fog)
 	maze.set_fog(on_maze.x, on_maze.y, 0)
