@@ -23,8 +23,14 @@ var jump_easings: Array[Tween.EaseType] = [
 var jump_animation_names: Array[String] = [
 	"jump_left",
 	"jump_right",
-	"jump_left", # up
-	"jump_right", #down
+	"jump_up", # up
+	"jump_down", #down
+]
+var idle_animation_names: Array[String] = [
+	"idle_left", # left
+	"idle_right", # right
+	"idle_up", # up
+	"idle_down", # down
 ]
 
 @onready var sprite: AnimatedSprite2D = $sprite
@@ -54,6 +60,8 @@ func try_to_move(new_dir: Direction) -> void:
 	tw.tween_property(self, "position", new_pos, jump_duration)
 	await tw.finished
 	
+	sprite.play(idle_animation_names[dir])
+	
 	can_move = true
 
 func maze_pos_to_real_pos() -> Vector2:
@@ -61,6 +69,7 @@ func maze_pos_to_real_pos() -> Vector2:
 
 func _ready() -> void:
 	position = maze_pos_to_real_pos()
+	sprite.play(idle_animation_names[dir])
 	
 	for anim in jump_animation_names:
 		sprite.sprite_frames.set_animation_speed(anim, 6 / jump_duration)
