@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://cmjp5xg4173jt"]
 
-[ext_resource type="PackedScene" uid="uid://dmpomddpcbikx" path="res://scene/frog.tscn" id="1_pjass"]
+[ext_resource type="PackedScene" uid="uid://bo7qwog74b74g" path="res://scene/maze.tscn" id="1_pjass"]
 
 [node name="world" type="Node2D" unique_id=1405661508]
 
-[node name="frog" parent="." unique_id=1608169639 instance=ExtResource("1_pjass")]
+[node name="maze" parent="." unique_id=1893085999 instance=ExtResource("1_pjass")]
+position = Vector2(36, 36)
