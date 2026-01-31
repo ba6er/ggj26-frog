@@ -6,6 +6,7 @@
 
 [node name="maze" parent="." unique_id=1893085999 instance=ExtResource("1_pjass")]
 position = Vector2(170, 30)
+flies = Array[Vector2i]([Vector2i(0, 0), Vector2i(3, 2), Vector2i(5, 4)])
 
 [node name="frog" parent="maze" index="0" unique_id=1608169639]
 on_maze = Vector2i(3, 3)
