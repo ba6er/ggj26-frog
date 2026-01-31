@@ -55,7 +55,6 @@ func try_to_move(new_dir: Direction) -> void:
 	if new_pos == position:
 		return
 	
-	maze.set_fog(on_maze.x, on_maze.y, 0)
 	sprite.play(jump_animation_names[dir])
 	can_move = false
 	
@@ -64,15 +63,8 @@ func try_to_move(new_dir: Direction) -> void:
 	tw.set_ease(jump_easings[dir])
 	tw.tween_property(self, "position", new_pos, jump_duration)
 	await tw.finished
-<<<<<<< Updated upstream
-=======
 	maze.set_fog(old_on_maze.x, old_on_maze.y, 1)
 
-	maze.set_fog(on_maze.x, on_maze.y, 0)
-
->>>>>>> Stashed changes
-	
-	maze.set_fog(old_on_maze.x, old_on_maze.y, maze.max_fog)
 	maze.set_fog(on_maze.x, on_maze.y, 0)
 	sprite.play(idle_animation_names[dir])
 	maze.try_eat_fly(on_maze)

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bqndm2f13euxv"]
 
-[ext_resource type="Script" uid="uid://m2jnr4devbob" path="res://scene/fly.gd" id="1_ry56p"]
+[ext_resource type="Script" uid="uid://rdhalaqn2smc" path="res://scene/fly.gd" id="1_ry56p"]
 [ext_resource type="Texture2D" uid="uid://c86qxlsjg14tr" path="res://asset/muha_sheet.png" id="3_38lmm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c5qfr"]
