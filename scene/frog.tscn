@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dmpomddpcbikx"]
 
-[ext_resource type="Script" uid="uid://dp3mlormo046p" path="res://scene/frog.gd" id="1_av2mw"]
+[ext_resource type="Script" uid="uid://de7gin32pjy8e" path="res://scene/frog.gd" id="1_av2mw"]
 [ext_resource type="Texture2D" uid="uid://dnxepalagm12j" path="res://asset/frog_idle_down.png" id="2_rhb51"]
 [ext_resource type="Texture2D" uid="uid://d27pudw6vg0bv" path="res://asset/idle_left.png" id="3_d5qa6"]
 [ext_resource type="Texture2D" uid="uid://c1vwu2tsptywo" path="res://asset/frog_jump_right.png" id="3_ofrq0"]

@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://05jfebx0y4f1"]
+
+[ext_resource type="Texture2D" uid="uid://byvo3yvt7iuey" path="res://asset/fog.png" id="1_sj1sy"]
+[ext_resource type="Script" uid="uid://drcgtaukkowfo" path="res://scene/fog.gd" id="2_sj1sy"]
+
+[node name="fog" type="Sprite2D" unique_id=1563435891]
+modulate = Color(1, 1, 1, 0)
+z_index = 2
+z_as_relative = false
+texture = ExtResource("1_sj1sy")
+script = ExtResource("2_sj1sy")

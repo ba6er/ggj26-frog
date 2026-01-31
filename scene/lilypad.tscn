@@ -1,10 +1,13 @@
 [gd_scene format=3 uid="uid://cus5mviwkndke"]
 
-[ext_resource type="Script" uid="uid://bamseqfp8wnrg" path="res://scene/lilypad.gd" id="1_gwrpx"]
-[ext_resource type="Texture2D" uid="uid://b4da6yq15k2xp" path="res://asset/lopoc_smedi.png" id="2_yvwqb"]
+[ext_resource type="Script" uid="uid://bvol5dlwc4jwa" path="res://scene/lilypad.gd" id="1_gwrpx"]
+[ext_resource type="Texture2D" uid="uid://cjj5o64qbd1rs" path="res://asset/lopoc_smedi.png" id="2_yvwqb"]
+[ext_resource type="PackedScene" uid="uid://05jfebx0y4f1" path="res://scene/fog.tscn" id="3_kyr4p"]
 
 [node name="lilypad" type="Node2D" unique_id=1552020283]
 script = ExtResource("1_gwrpx")
 
 [node name="sprite" type="Sprite2D" parent="." unique_id=338000714]
 texture = ExtResource("2_yvwqb")
+
+[node name="fog" parent="." unique_id=1563435891 instance=ExtResource("3_kyr4p")]
