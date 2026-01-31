@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://cmjp5xg4173jt"]
 
 [ext_resource type="PackedScene" uid="uid://bo7qwog74b74g" path="res://scene/maze.tscn" id="1_pjass"]
+[ext_resource type="Script" uid="uid://bhtx8oqgndbao" path="res://scene/world.gd" id="1_txmk2"]
 
 [node name="world" type="Node2D" unique_id=1405661508]
+script = ExtResource("1_txmk2")
 
 [node name="maze" parent="." unique_id=1893085999 instance=ExtResource("1_pjass")]
 position = Vector2(170, 30)
