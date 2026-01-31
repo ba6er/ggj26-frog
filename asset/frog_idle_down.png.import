@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cjj5o64qbd1rs"
-path="res://.godot/imported/lopoc_smedi.png-874127b4fe54fdb87903aeb07045da0f.ctex"
+uid="uid://dnxepalagm12j"
+path="res://.godot/imported/frog_idle_down.png-acc488dc1f35e7675549a148c506f226.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://asset/lopoc_smedi.png"
-dest_files=["res://.godot/imported/lopoc_smedi.png-874127b4fe54fdb87903aeb07045da0f.ctex"]
+source_file="res://asset/frog_idle_down.png"
+dest_files=["res://.godot/imported/frog_idle_down.png-acc488dc1f35e7675549a148c506f226.ctex"]
 
 [params]
 

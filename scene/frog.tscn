@@ -1,14 +1,116 @@
 [gd_scene format=3 uid="uid://dmpomddpcbikx"]
 
 [ext_resource type="Script" uid="uid://dp3mlormo046p" path="res://scene/frog.gd" id="1_av2mw"]
-[ext_resource type="Texture2D" uid="uid://bcs78y7ryqaka" path="res://asset/frog.png" id="2_av2mw"]
+[ext_resource type="Texture2D" uid="uid://c1vwu2tsptywo" path="res://asset/frog_jump_right.png" id="3_ofrq0"]
+[ext_resource type="Texture2D" uid="uid://d4ectg8xs8f7g" path="res://asset/frog_jump_left.png" id="3_xxmss"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ofrq0"]
+atlas = ExtResource("3_xxmss")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ix5wc"]
+atlas = ExtResource("3_xxmss")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lhiaw"]
+atlas = ExtResource("3_xxmss")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rhb51"]
+atlas = ExtResource("3_xxmss")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ur2jq"]
+atlas = ExtResource("3_xxmss")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d5qa6"]
+atlas = ExtResource("3_xxmss")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xxmss"]
+atlas = ExtResource("3_ofrq0")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_got5i"]
+atlas = ExtResource("3_ofrq0")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mqxpl"]
+atlas = ExtResource("3_ofrq0")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_men2m"]
+atlas = ExtResource("3_ofrq0")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4nb33"]
+atlas = ExtResource("3_ofrq0")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y42eu"]
+atlas = ExtResource("3_ofrq0")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ix5wc"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ofrq0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ix5wc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lhiaw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rhb51")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ur2jq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d5qa6")
+}],
+"loop": false,
+"name": &"jump_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xxmss")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_got5i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mqxpl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_men2m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4nb33")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y42eu")
+}],
+"loop": false,
+"name": &"jump_right",
+"speed": 5.0
+}]
 
 [node name="frog" type="Node2D" unique_id=1608169639]
 z_index = 1
 script = ExtResource("1_av2mw")
 
-[node name="sprite" type="Sprite2D" parent="." unique_id=1145529085]
-position = Vector2(0, -6)
-texture = ExtResource("2_av2mw")
-hframes = 4
-frame = 3
+[node name="sprite" type="AnimatedSprite2D" parent="." unique_id=53290196]
+position = Vector2(0, -22)
+sprite_frames = SubResource("SpriteFrames_ix5wc")
+animation = &"jump_left"

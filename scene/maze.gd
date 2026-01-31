@@ -21,5 +21,5 @@ func _ready() -> void:
 		lily_pos.y += gap.y
 		lily_pos.x = 0
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
