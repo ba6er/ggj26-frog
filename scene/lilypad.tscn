@@ -1,19 +1,10 @@
 [gd_scene format=3 uid="uid://cus5mviwkndke"]
 
 [ext_resource type="Script" uid="uid://bamseqfp8wnrg" path="res://scene/lilypad.gd" id="1_gwrpx"]
-
-[sub_resource type="Gradient" id="Gradient_w6dnu"]
-colors = PackedColorArray(0, 0.41568628, 0, 1, 0, 1, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_gwrpx"]
-gradient = SubResource("Gradient_w6dnu")
-width = 32
-height = 32
-fill_from = Vector2(0, 1)
-fill_to = Vector2(0, 0)
+[ext_resource type="Texture2D" uid="uid://b4da6yq15k2xp" path="res://asset/lopoc_smedi.png" id="2_yvwqb"]
 
 [node name="lilypad" type="Node2D" unique_id=1552020283]
 script = ExtResource("1_gwrpx")
 
 [node name="sprite" type="Sprite2D" parent="." unique_id=338000714]
-texture = SubResource("GradientTexture2D_gwrpx")
+texture = ExtResource("2_yvwqb")

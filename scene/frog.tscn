@@ -1,12 +1,14 @@
 [gd_scene format=3 uid="uid://dmpomddpcbikx"]
 
-[ext_resource type="Texture2D" uid="uid://opalro68340g" path="res://asset/frog_idle.png" id="1_67h04"]
 [ext_resource type="Script" uid="uid://dp3mlormo046p" path="res://scene/frog.gd" id="1_av2mw"]
+[ext_resource type="Texture2D" uid="uid://bcs78y7ryqaka" path="res://asset/frog.png" id="2_av2mw"]
 
 [node name="frog" type="Node2D" unique_id=1608169639]
 z_index = 1
 script = ExtResource("1_av2mw")
 
 [node name="sprite" type="Sprite2D" parent="." unique_id=1145529085]
-position = Vector2(-1, 0)
-texture = ExtResource("1_67h04")
+position = Vector2(0, -6)
+texture = ExtResource("2_av2mw")
+hframes = 4
+frame = 3

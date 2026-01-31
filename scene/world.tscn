@@ -5,4 +5,9 @@
 [node name="world" type="Node2D" unique_id=1405661508]
 
 [node name="maze" parent="." unique_id=1893085999 instance=ExtResource("1_pjass")]
-position = Vector2(36, 36)
+position = Vector2(170, 30)
+
+[node name="frog" parent="maze" index="0" unique_id=1608169639]
+on_maze = Vector2i(3, 3)
+
+[editable path="maze"]
