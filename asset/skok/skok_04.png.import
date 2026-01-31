@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://opalro68340g"
-path="res://.godot/imported/frog_idle.png-11fb3692b5c5b0e82eba34e77f8eb063.ctex"
+uid="uid://k5olopvm2pr5"
+path="res://.godot/imported/skok_04.png-c111a3777c35d5a8d80e3adc0e84956c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://asset/frog_idle.png"
-dest_files=["res://.godot/imported/frog_idle.png-11fb3692b5c5b0e82eba34e77f8eb063.ctex"]
+source_file="res://asset/skok/skok_04.png"
+dest_files=["res://.godot/imported/skok_04.png-c111a3777c35d5a8d80e3adc0e84956c.ctex"]
 
 [params]
 
@@ -37,4 +37,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1
