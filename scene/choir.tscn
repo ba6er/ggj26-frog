@@ -1,0 +1,144 @@
+[gd_scene format=3 uid="uid://dpkwkypqdognp"]
+
+[ext_resource type="Texture2D" uid="uid://7ygdu3ac4tcf" path="res://asset/choir.png" id="1_ir2e0"]
+[ext_resource type="Texture2D" uid="uid://cppxd6mbuo7ja" path="res://asset/shadow.png" id="2_iv77a"]
+[ext_resource type="Script" uid="uid://ca0x5d453n4j2" path="res://scene/choir.gd" id="2_oio7p"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iv77a"]
+atlas = ExtResource("1_ir2e0")
+region = Rect2(0, 0, 64, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oio7p"]
+atlas = ExtResource("1_ir2e0")
+region = Rect2(64, 0, 64, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hrqp1"]
+atlas = ExtResource("1_ir2e0")
+region = Rect2(128, 0, 64, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_loy11"]
+atlas = ExtResource("1_ir2e0")
+region = Rect2(192, 0, 64, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l7ntw"]
+atlas = ExtResource("1_ir2e0")
+region = Rect2(256, 0, 64, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v6cf7"]
+atlas = ExtResource("1_ir2e0")
+region = Rect2(320, 0, 64, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_htal3"]
+atlas = ExtResource("1_ir2e0")
+region = Rect2(384, 0, 64, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_018f7"]
+atlas = ExtResource("1_ir2e0")
+region = Rect2(448, 0, 64, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3tk0e"]
+atlas = ExtResource("1_ir2e0")
+region = Rect2(512, 0, 64, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5r4m8"]
+atlas = ExtResource("1_ir2e0")
+region = Rect2(576, 0, 64, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l4rat"]
+atlas = ExtResource("1_ir2e0")
+region = Rect2(640, 0, 64, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mk8go"]
+atlas = ExtResource("1_ir2e0")
+region = Rect2(704, 0, 64, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v412r"]
+atlas = ExtResource("1_ir2e0")
+region = Rect2(768, 0, 64, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bxo3w"]
+atlas = ExtResource("1_ir2e0")
+region = Rect2(832, 0, 64, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e0gpl"]
+atlas = ExtResource("1_ir2e0")
+region = Rect2(896, 0, 64, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_63ewo"]
+atlas = ExtResource("1_ir2e0")
+region = Rect2(960, 0, 64, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ppc3x"]
+atlas = ExtResource("1_ir2e0")
+region = Rect2(1024, 0, 64, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6fesc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iv77a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oio7p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hrqp1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_loy11")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l7ntw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v6cf7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_htal3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_018f7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3tk0e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5r4m8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l4rat")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mk8go")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v412r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bxo3w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e0gpl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_63ewo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ppc3x")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="choir" type="AnimatedSprite2D" unique_id=1802612006]
+sprite_frames = SubResource("SpriteFrames_6fesc")
+frame_progress = 0.9902398
+script = ExtResource("2_oio7p")
+
+[node name="shadow" type="Sprite2D" parent="." unique_id=443799728]
+modulate = Color(1, 1, 1, 0.3529412)
+z_index = -1
+position = Vector2(0, 24)
+scale = Vector2(3, 1.5)
+texture = ExtResource("2_iv77a")

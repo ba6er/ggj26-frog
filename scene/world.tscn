@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bpx8lom848qak" path="res://asset/bg3.png" id="3_w4qq1"]
 [ext_resource type="Texture2D" uid="uid://d1s3pb0uwyqyv" path="res://asset/button_play_again.png" id="4_0tg4p"]
 [ext_resource type="Texture2D" uid="uid://baxyy67w1vw87" path="res://asset/button_next.png" id="4_y3jn2"]
+[ext_resource type="PackedScene" uid="uid://dpkwkypqdognp" path="res://scene/choir.tscn" id="8_y3jn2"]
 
 [node name="world" type="Node2D" unique_id=1405661508]
 script = ExtResource("1_txmk2")
@@ -27,6 +28,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="win_display" type="Control" parent="ui" unique_id=1143232198]
+visible = false
 custom_minimum_size = Vector2(128, 64)
 layout_mode = 1
 anchors_preset = 15
@@ -90,3 +92,9 @@ z_index = -1
 texture = ExtResource("3_w4qq1")
 centered = false
 metadata/_edit_lock_ = true
+
+[node name="choir2" parent="." unique_id=1802612006 instance=ExtResource("8_y3jn2")]
+position = Vector2(66, 214)
+
+[node name="choir" parent="." unique_id=1256188335 instance=ExtResource("8_y3jn2")]
+position = Vector2(571, 111)

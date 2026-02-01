@@ -77,7 +77,10 @@ func toggle_pause() -> void:
 func next_level() -> void:
 	maze_index = (maze_index + 1) % len(mazes)
 	is_last_level = maze_index == len(mazes) - 1
-	play_level(mazes[maze_index])
+	if is_last_level:
+		get_tree().change_scene_to_file("res://scene/endcutscene.tscn")
+	else:
+		play_level(mazes[maze_index])
 
 func play_level(level_strings: Array[String]) -> void:
 	get_tree().change_scene_to_file("res://scene/world.tscn")

@@ -5,6 +5,22 @@ enum Direction {LEFT, RIGHT, UP, DOWN}
 
 const BLOOD_PREFAB := preload("res://scene/blood.tscn")
 
+const DROWN_SFX: AudioStreamWAV = preload("res://asset/audio/drown.wav")
+const DIE_SFX: AudioStreamWAV = preload("res://asset/audio/spikes.wav")
+const COLLECT_SFX: AudioStreamWAV = preload("res://asset/audio/collect.wav")
+const YUM_SFX: AudioStreamWAV = preload("res://asset/audio/yum.wav")
+const RIBBIT_SFX: Array[AudioStreamWAV] = [
+	preload("res://asset/audio/ribbit01.wav"),
+	preload("res://asset/audio/ribbit02.wav"),
+	preload("res://asset/audio/ribbit03.wav"),
+	preload("res://asset/audio/ribbit04.wav"),
+	preload("res://asset/audio/ribbit05.wav"),
+	preload("res://asset/audio/ribbit06.wav"),
+	preload("res://asset/audio/ribbit07.wav"),
+	preload("res://asset/audio/ribbit08.wav"),
+	preload("res://asset/audio/ribbit09.wav"),
+]
+
 @export var jump_duration: float = 0.6
 @export var on_maze: Vector2i = Vector2i(0, 0)
 @export var dir: Direction = Direction.DOWN
@@ -35,6 +51,7 @@ var idle_animation_names: Array[String] = [
 	"idle_down", # down
 ]
 
+@onready var mouth := $mouth
 @onready var shadow := $shadow
 @onready var sprite := $sprite
 @onready var maze: LilyMaze = get_parent()
@@ -43,6 +60,9 @@ func land_on_lily(lilytype: LilyPad.LilyType) -> void:
 	if lilytype == LilyPad.LilyType.ICE:
 		try_to_move(dir)
 	if lilytype == LilyPad.LilyType.SPIKE:
+		mouth.audio = DIE_SFX
+		mouth.play
+		
 		var splash := BLOOD_PREFAB.instantiate() as Splash
 		splash.position.x = position.x
 		splash.position.y = position.y - 30
@@ -68,6 +88,13 @@ func try_to_move(new_dir: Direction) -> void:
 	if new_pos == position or maze.lily_pads[new_on_maze.y][new_on_maze.x].has_snake:
 		return
 	
+	var lilytype = maze.get_lily_type_on(new_on_maze)
+	if maze.lily_pads[new_on_maze.y][new_on_maze.x].has_fly:
+		mouth.stream = YUM_SFX
+	else:
+		mouth.stream = RIBBIT_SFX[randi() % len(RIBBIT_SFX)]
+	mouth.play()
+	
 	maze.lily_pads[on_maze.y][on_maze.x].timer = 0
 	sprite.play(jump_animation_names[dir])
 	can_move = false
@@ -81,11 +108,15 @@ func try_to_move(new_dir: Direction) -> void:
 	maze.set_fog(on_maze.x, on_maze.y, maze.max_fog)
 	maze.set_fog(new_on_maze.x, new_on_maze.y, 0)
 	sprite.play(idle_animation_names[dir])
+	if maze.lily_pads[new_on_maze.y][new_on_maze.x].has_fly:
+		mouth.stream = COLLECT_SFX
+		mouth.play()
+
 	maze.try_eat_fly(new_on_maze)
 	can_move = true
 	
 	on_maze = new_on_maze
-	land_on_lily(maze.get_lily_type_on(on_maze))
+	land_on_lily(lilytype)
 
 func maze_pos_to_real_pos() -> Vector2:
 	return Vector2(maze.gap.x * on_maze.x, maze.gap.y * on_maze.y)

@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://mfvtmvjpykuw"]
+
+[ext_resource type="Script" uid="uid://lw61fkxp6b5u" path="res://scene/story.gd" id="1_6neeb"]
+[ext_resource type="FontFile" uid="uid://dndne8uxy8grp" path="res://asset/fs-pixel-sans-unicode-regular.ttf" id="2_8rr52"]
+
+[node name="story" type="Control" unique_id=1862284719]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6neeb")
+
+[node name="text" type="RichTextLabel" parent="." unique_id=1778890521]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("2_8rr52")
+theme_override_font_sizes/normal_font_size = 32
+visible_characters = 0
+
+[node name="audioplayer" type="AudioStreamPlayer" parent="." unique_id=1238668664]
+max_polyphony = 10

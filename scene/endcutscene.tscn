@@ -1,0 +1,214 @@
+[gd_scene format=3 uid="uid://ci6slgkm6pg22"]
+
+[ext_resource type="PackedScene" uid="uid://mfvtmvjpykuw" path="res://scene/story.tscn" id="2_hbgh1"]
+[ext_resource type="AudioStream" uid="uid://cxwak0h7y7ixa" path="res://asset/audio/snaketext.wav" id="3_xw578"]
+[ext_resource type="Texture2D" uid="uid://bpx8lom848qak" path="res://asset/bg3.png" id="4_vc6ae"]
+[ext_resource type="Texture2D" uid="uid://dnxepalagm12j" path="res://asset/frog_idle_down.png" id="5_g1n4s"]
+[ext_resource type="Texture2D" uid="uid://cppxd6mbuo7ja" path="res://asset/shadow.png" id="6_s33mh"]
+[ext_resource type="Texture2D" uid="uid://bwa0g3s8yv6mt" path="res://asset/snake1_idle.png" id="6_udcep"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_toqfu"]
+atlas = ExtResource("5_g1n4s")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lhkhf"]
+atlas = ExtResource("5_g1n4s")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2dns6"]
+atlas = ExtResource("5_g1n4s")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ddaf1"]
+atlas = ExtResource("5_g1n4s")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d7v6r"]
+atlas = ExtResource("5_g1n4s")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2pkhj"]
+atlas = ExtResource("5_g1n4s")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xe5vn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_toqfu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lhkhf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2dns6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ddaf1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d7v6r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2pkhj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u6ybh"]
+atlas = ExtResource("6_udcep")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hbgh1"]
+atlas = ExtResource("6_udcep")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xw578"]
+atlas = ExtResource("6_udcep")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vc6ae"]
+atlas = ExtResource("6_udcep")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g1n4s"]
+atlas = ExtResource("6_udcep")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4xkg4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u6ybh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hbgh1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xw578")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vc6ae")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g1n4s")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="cutscene" type="Control" unique_id=1059106296]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="story2" parent="." unique_id=1346163085 instance=ExtResource("2_hbgh1")]
+custom_minimum_size = Vector2(320, 320)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -160.0
+offset_right = 160.0
+offset_bottom = 160.0
+tick_seconds = 0.05
+appear_at = 16.5
+disappear_at = 25.5
+
+[node name="text" parent="story2" index="0" unique_id=1778890521]
+modulate = Color(0.3764706, 0, 0.07450981, 1)
+text = "Hahahaha, oh you delicious, stupid froggy. And here you thought you were clever.
+
+Rrrribit?
+
+Ssssss..."
+
+[node name="audioplayer" parent="story2" index="1" unique_id=1238668664]
+stream = ExtResource("3_xw578")
+
+[node name="story1" parent="." unique_id=777542942 instance=ExtResource("2_hbgh1")]
+custom_minimum_size = Vector2(320, 320)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -160.0
+offset_right = 160.0
+offset_bottom = 160.0
+tick_seconds = 0.05
+appear_at = 9.5
+disappear_at = 16.0
+
+[node name="text" parent="story1" index="0" unique_id=1778890521]
+modulate = Color(0.3764706, 0, 0.07450981, 1)
+text = "
+Oh, well, time for a feast. The only catch, I don’t really like fliesss...
+
+Ribbit?"
+
+[node name="audioplayer" parent="story1" index="1" unique_id=1238668664]
+stream = ExtResource("3_xw578")
+
+[node name="story0" parent="." unique_id=1807557977 instance=ExtResource("2_hbgh1")]
+custom_minimum_size = Vector2(320, 320)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+tick_seconds = 0.05
+appear_at = 1.0
+disappear_at = 9.0
+
+[node name="text" parent="story0" index="0" unique_id=1778890521]
+modulate = Color(0.3764706, 0, 0.07450981, 1)
+text = "Impresssive, I didn’t think you’d survive the swamp, but here you are.
+
+Ribbit."
+
+[node name="audioplayer" parent="story0" index="1" unique_id=1238668664]
+stream = ExtResource("3_xw578")
+
+[node name="bg" type="Sprite2D" parent="." unique_id=594262689]
+z_index = -1
+texture = ExtResource("4_vc6ae")
+centered = false
+
+[node name="frog" type="AnimatedSprite2D" parent="." unique_id=159643668]
+position = Vector2(576, 107)
+sprite_frames = SubResource("SpriteFrames_xe5vn")
+autoplay = "default"
+
+[node name="shadow" type="Sprite2D" parent="frog" unique_id=1937747278]
+modulate = Color(1, 1, 1, 0.43137255)
+z_index = -1
+position = Vector2(0, 20)
+texture = ExtResource("6_s33mh")
+
+[node name="snake" type="AnimatedSprite2D" parent="." unique_id=2084217816]
+position = Vector2(70, 217)
+sprite_frames = SubResource("SpriteFrames_4xkg4")
+autoplay = "default"
+
+[node name="shadow" type="Sprite2D" parent="snake" unique_id=2089372100]
+modulate = Color(1, 1, 1, 0.43137255)
+z_index = -1
+position = Vector2(0, 28)
+texture = ExtResource("6_s33mh")
+
+[editable path="story2"]
+[editable path="story1"]
+[editable path="story0"]

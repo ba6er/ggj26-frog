@@ -416,3 +416,6 @@ modulate = Color(1, 1, 1, 0.43137255)
 z_index = -1
 position = Vector2(0, -2)
 texture = ExtResource("11_lhiaw")
+
+[node name="mouth" type="AudioStreamPlayer" parent="." unique_id=1098697479]
+max_polyphony = 10

@@ -1,0 +1,254 @@
+[gd_scene format=3 uid="uid://d1jl1m55hw0ta"]
+
+[ext_resource type="PackedScene" uid="uid://mfvtmvjpykuw" path="res://scene/story.tscn" id="1_drs7p"]
+[ext_resource type="Script" uid="uid://cffynjpodqsel" path="res://scene/cutscene.gd" id="1_lhkhf"]
+[ext_resource type="Texture2D" uid="uid://bpx8lom848qak" path="res://asset/bg3.png" id="2_1lj4p"]
+[ext_resource type="AudioStream" uid="uid://cxwak0h7y7ixa" path="res://asset/audio/snaketext.wav" id="2_toqfu"]
+[ext_resource type="Texture2D" uid="uid://dnxepalagm12j" path="res://asset/frog_idle_down.png" id="3_se8x6"]
+[ext_resource type="Texture2D" uid="uid://dvjaqlec3b6tr" path="res://asset/snake0_idle.png" id="3_yoln4"]
+[ext_resource type="Texture2D" uid="uid://cppxd6mbuo7ja" path="res://asset/shadow.png" id="4_se8x6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_toqfu"]
+atlas = ExtResource("3_se8x6")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lhkhf"]
+atlas = ExtResource("3_se8x6")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2dns6"]
+atlas = ExtResource("3_se8x6")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ddaf1"]
+atlas = ExtResource("3_se8x6")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d7v6r"]
+atlas = ExtResource("3_se8x6")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2pkhj"]
+atlas = ExtResource("3_se8x6")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xe5vn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_toqfu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lhkhf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2dns6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ddaf1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d7v6r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2pkhj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l5420"]
+atlas = ExtResource("3_yoln4")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qfoah"]
+atlas = ExtResource("3_yoln4")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q5ggk"]
+atlas = ExtResource("3_yoln4")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vhsd4"]
+atlas = ExtResource("3_yoln4")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f2hu7"]
+atlas = ExtResource("3_yoln4")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0efc0"]
+atlas = ExtResource("3_yoln4")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4xkg4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l5420")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qfoah")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q5ggk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vhsd4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f2hu7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0efc0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="cutscene" type="Control" unique_id=1059106296]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lhkhf")
+
+[node name="story3" parent="." unique_id=1862284719 instance=ExtResource("1_drs7p")]
+custom_minimum_size = Vector2(320, 320)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -160.0
+offset_right = 160.0
+offset_bottom = 160.0
+tick_seconds = 0.05
+appear_at = 26.0
+disappear_at = 35.0
+
+[node name="text" parent="story3" index="0" unique_id=1778890521]
+modulate = Color(0.3764706, 0, 0.07450981, 1)
+text = "Ribbit.
+ 
+Alright, alright, catch me some fliesss in that mouth of yours and I’ll spare you...
+ 
+Ribbit!"
+
+[node name="audioplayer" parent="story3" index="1" unique_id=1238668664]
+stream = ExtResource("2_toqfu")
+
+[node name="story2" parent="." unique_id=1346163085 instance=ExtResource("1_drs7p")]
+custom_minimum_size = Vector2(320, 320)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -160.0
+offset_right = 160.0
+offset_bottom = 160.0
+tick_seconds = 0.05
+appear_at = 16.5
+disappear_at = 25.5
+
+[node name="text" parent="story2" index="0" unique_id=1778890521]
+modulate = Color(0.3764706, 0, 0.07450981, 1)
+text = "Won’t you beg for mercy?
+ 
+RIBBIT!
+ 
+Bold one, aren’t you? A frog with that kind of confidence might just tempt me with a few delicious flies."
+
+[node name="audioplayer" parent="story2" index="1" unique_id=1238668664]
+stream = ExtResource("2_toqfu")
+
+[node name="story1" parent="." unique_id=777542942 instance=ExtResource("1_drs7p")]
+custom_minimum_size = Vector2(320, 320)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -160.0
+offset_right = 160.0
+offset_bottom = 160.0
+tick_seconds = 0.05
+appear_at = 9.5
+disappear_at = 16.0
+
+[node name="text" parent="story1" index="0" unique_id=1778890521]
+modulate = Color(0.3764706, 0, 0.07450981, 1)
+text = "…
+ 
+Ribbit.
+ 
+Not exactly chatty, are you?
+ 
+Ribbit."
+
+[node name="audioplayer" parent="story1" index="1" unique_id=1238668664]
+stream = ExtResource("2_toqfu")
+
+[node name="story0" parent="." unique_id=1807557977 instance=ExtResource("1_drs7p")]
+custom_minimum_size = Vector2(320, 320)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+tick_seconds = 0.05
+appear_at = 1.0
+disappear_at = 9.0
+
+[node name="text" parent="story0" index="0" unique_id=1778890521]
+modulate = Color(0.3764706, 0, 0.07450981, 1)
+text = "Ha. Stupid frog. Nowhere to go. Just you alone will feed me for days. Iii mean lead me, to your demise, of course... So, froggy, any last wishes?
+ 
+Ribbit."
+
+[node name="audioplayer" parent="story0" index="1" unique_id=1238668664]
+stream = ExtResource("2_toqfu")
+
+[node name="bg" type="Sprite2D" parent="." unique_id=594262689]
+z_index = -1
+texture = ExtResource("2_1lj4p")
+centered = false
+
+[node name="frog" type="AnimatedSprite2D" parent="." unique_id=159643668]
+position = Vector2(576, 107)
+sprite_frames = SubResource("SpriteFrames_xe5vn")
+autoplay = "default"
+
+[node name="shadow" type="Sprite2D" parent="frog" unique_id=1937747278]
+modulate = Color(1, 1, 1, 0.43137255)
+z_index = -1
+position = Vector2(0, 20)
+texture = ExtResource("4_se8x6")
+
+[node name="snake" type="AnimatedSprite2D" parent="." unique_id=2084217816]
+position = Vector2(70, 217)
+sprite_frames = SubResource("SpriteFrames_4xkg4")
+autoplay = "default"
+
+[node name="shadow" type="Sprite2D" parent="snake" unique_id=2089372100]
+modulate = Color(1, 1, 1, 0.43137255)
+z_index = -1
+position = Vector2(0, 28)
+texture = ExtResource("4_se8x6")
+
+[editable path="story3"]
+[editable path="story2"]
+[editable path="story1"]
+[editable path="story0"]
