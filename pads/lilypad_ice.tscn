@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://dscei1sapiper"]
+
+[ext_resource type="PackedScene" uid="uid://dvcknofon7ekr" path="res://pads/lilypad.tscn" id="1_oqi3b"]
+[ext_resource type="Script" uid="uid://bd26ns1txmj7" path="res://pads/lilypad_ice.gd" id="2_ice"]
+
+[node name="Lilypad2" unique_id=1369616639 instance=ExtResource("1_oqi3b")]
+script = ExtResource("2_ice")
+spawn_weight = 0.5

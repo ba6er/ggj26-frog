@@ -1,9 +1,0 @@
-[gd_scene format=3 uid="uid://bo7qwog74b74g"]
-
-[ext_resource type="PackedScene" uid="uid://dmpomddpcbikx" path="res://scene/frog.tscn" id="1_r0laq"]
-[ext_resource type="Script" uid="uid://gqbmflxjgx0d" path="res://scene/maze.gd" id="1_sfl3n"]
-
-[node name="maze" type="Node2D" unique_id=1893085999]
-script = ExtResource("1_sfl3n")
-
-[node name="frog" parent="." unique_id=1608169639 instance=ExtResource("1_r0laq")]

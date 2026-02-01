@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://chtomn8wohtpl"]
+
+[ext_resource type="PackedScene" uid="uid://dvcknofon7ekr" path="res://pads/lilypad.tscn" id="1_base"]
+[ext_resource type="Script" uid="uid://dtaghl1nop24o" path="res://pads/lilypad_flower.gd" id="2_flower"]
+
+[node name="Lilypad" unique_id=1036693768 instance=ExtResource("1_base")]
+script = ExtResource("2_flower")
+spawn_weight = 10.0

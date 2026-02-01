@@ -1,0 +1,99 @@
+[gd_scene format=3 uid="uid://b1cg1kot8uhiu"]
+
+[ext_resource type="Script" uid="uid://x11e8f28u1a2" path="res://pads/lilypad_spikes.gd" id="2_s1vqe"]
+[ext_resource type="Texture2D" uid="uid://wiccd28iuxtg" path="res://asset/splash_krvi_sheet.png" id="3_kx04m"]
+[ext_resource type="Texture2D" uid="uid://vs5adcny56cp" path="res://asset/spike.png" id="4_xsr8u"]
+[ext_resource type="Texture2D" uid="uid://byvo3yvt7iuey" path="res://asset/fog.png" id="5_ilo10"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vaqu6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_858ap"]
+atlas = ExtResource("3_kx04m")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f6c0a"]
+atlas = ExtResource("3_kx04m")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xsr8u"]
+atlas = ExtResource("3_kx04m")
+region = Rect2(512, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ilo10"]
+atlas = ExtResource("3_kx04m")
+region = Rect2(768, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g6ycm"]
+atlas = ExtResource("3_kx04m")
+region = Rect2(1024, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a126n"]
+atlas = ExtResource("3_kx04m")
+region = Rect2(1280, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_roh6m"]
+atlas = ExtResource("3_kx04m")
+region = Rect2(1536, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o8nys"]
+atlas = ExtResource("3_kx04m")
+region = Rect2(1792, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_death"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_858ap")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f6c0a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xsr8u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ilo10")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g6ycm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a126n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_roh6m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o8nys")
+}],
+"loop": false,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="Lilypad2" type="Area2D" unique_id=1369616639]
+script = ExtResource("2_s1vqe")
+is_safe_for_fly = false
+sinks_over_time = false
+spawn_weight = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1365689716]
+shape = SubResource("RectangleShape2D_vaqu6")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=1879722246]
+texture = ExtResource("4_xsr8u")
+
+[node name="DeathSprite" type="AnimatedSprite2D" parent="." unique_id=1238078956]
+visible = false
+clip_children = 2
+z_index = 50
+sprite_frames = SubResource("SpriteFrames_death")
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=1600186751]
+
+[node name="SinkTimer" type="Timer" parent="." unique_id=381014624]
+one_shot = true
+
+[node name="Fog" type="Sprite2D" parent="." unique_id=1159526519]
+z_index = 10
+texture = ExtResource("5_ilo10")

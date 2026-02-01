@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://c0nbwo6t5oagm"]
+
+[ext_resource type="Script" uid="uid://b6jxi22nb480j" path="res://levels/maze.gd" id="1_kese7"]
+[ext_resource type="PackedScene" uid="uid://ckbt5nxe2g630" path="res://objects/Frog.tscn" id="2_1cbvb"]
+[ext_resource type="Texture2D" path="res://asset/Pozadina.png" id="3_bg"]
+
+[node name="Maze" type="Node2D" unique_id=1807114666]
+script = ExtResource("1_kese7")
+
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -100
+centered = false
+texture = ExtResource("3_bg")
+
+[node name="Frog" parent="." unique_id=1998889452 instance=ExtResource("2_1cbvb")]
