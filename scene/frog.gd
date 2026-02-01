@@ -60,9 +60,6 @@ func land_on_lily(lilytype: LilyPad.LilyType) -> void:
 	if lilytype == LilyPad.LilyType.ICE:
 		try_to_move(dir)
 	if lilytype == LilyPad.LilyType.SPIKE:
-		mouth.audio = DIE_SFX
-		mouth.play
-		
 		var splash := BLOOD_PREFAB.instantiate() as Splash
 		splash.position.x = position.x
 		splash.position.y = position.y - 30
