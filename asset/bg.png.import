@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cjj5o64qbd1rs"
-path="res://.godot/imported/lopoc_smedi.png-874127b4fe54fdb87903aeb07045da0f.ctex"
+uid="uid://codmpkhaliiv1"
+path="res://.godot/imported/bg.png-13eee57691ab035e5e509ec6ebb17511.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://asset/lopoc_smedi.png"
-dest_files=["res://.godot/imported/lopoc_smedi.png-874127b4fe54fdb87903aeb07045da0f.ctex"]
+source_file="res://asset/bg.png"
+dest_files=["res://.godot/imported/bg.png-13eee57691ab035e5e509ec6ebb17511.ctex"]
 
 [params]
 

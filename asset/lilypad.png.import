@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://usfw563k723f"
-path="res://.godot/imported/skok_03.png-f44d5cc2f2f31c1acabdd68eb4df7a99.ctex"
+uid="uid://c7rr6iyyycrc1"
+path="res://.godot/imported/lilypad.png-6cbbd6778ea9bdc1656c8736bc90f4cd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://asset/skok/skok_03.png"
-dest_files=["res://.godot/imported/skok_03.png-f44d5cc2f2f31c1acabdd68eb4df7a99.ctex"]
+source_file="res://asset/lilypad.png"
+dest_files=["res://.godot/imported/lilypad.png-6cbbd6778ea9bdc1656c8736bc90f4cd.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://k5olopvm2pr5"
-path="res://.godot/imported/skok_04.png-c111a3777c35d5a8d80e3adc0e84956c.ctex"
+uid="uid://d6r11asd81y"
+path="res://.godot/imported/bg2.png-c404637ed23136840a88bb457e7fa444.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://asset/skok/skok_04.png"
-dest_files=["res://.godot/imported/skok_04.png-c111a3777c35d5a8d80e3adc0e84956c.ctex"]
+source_file="res://asset/bg2.png"
+dest_files=["res://.godot/imported/bg2.png-c404637ed23136840a88bb457e7fa444.ctex"]
 
 [params]
 

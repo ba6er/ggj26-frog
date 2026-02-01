@@ -36,6 +36,13 @@ var idle_animation_names: Array[String] = [
 @onready var sprite: AnimatedSprite2D = $sprite
 @onready var maze: LilyMaze = get_parent()
 
+func land_on_lily(lilytype: LilyPad.LilyType) -> void:
+	if lilytype == LilyPad.LilyType.ICE:
+		try_to_move(dir)
+	if lilytype == LilyPad.LilyType.SPIKE:
+		# die
+		GameManager.player_die()
+
 func try_to_move(new_dir: Direction) -> void:
 	if can_move == false:
 		return
@@ -55,7 +62,6 @@ func try_to_move(new_dir: Direction) -> void:
 	if new_pos == position:
 		return
 	
-	maze.set_fog(on_maze.x, on_maze.y, 0)
 	sprite.play(jump_animation_names[dir])
 	can_move = false
 	
@@ -70,6 +76,8 @@ func try_to_move(new_dir: Direction) -> void:
 	sprite.play(idle_animation_names[dir])
 	maze.try_eat_fly(on_maze)
 	can_move = true
+	
+	land_on_lily(maze.get_lily_type_on(on_maze))
 
 func maze_pos_to_real_pos() -> Vector2:
 	return Vector2(maze.gap.x * on_maze.x, maze.gap.y * on_maze.y)
@@ -82,6 +90,9 @@ func _ready() -> void:
 		sprite.sprite_frames.set_animation_speed(anim, 6 / jump_duration)
 
 func _process(_delta: float) -> void:
+	if GameManager.world.state != World.GameState.PLAY:
+		return
+	
 	if Input.is_action_just_pressed("move_left"):
 		try_to_move(Direction.LEFT)
 	if Input.is_action_just_pressed("move_right"):

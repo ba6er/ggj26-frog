@@ -3,12 +3,17 @@ class_name LilyPad
 
 enum LilyType {
 	NORMAL,
-	TIMED,
-	SPIKE,
 	ICE,
+	SPIKE,
 	FLOWER,
 }
 
-@onready var fog := $fog
+@export var type := LilyType.NORMAL
 
 var has_fly := false
+
+@onready var fog := $fog
+@onready var sprite := $sprite
+
+func _ready() -> void:
+	sprite.frame = type

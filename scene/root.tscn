@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://dfgrn6o536irk"]
+
+[ext_resource type="Script" uid="uid://vt3mqq8cft7i" path="res://scene/root.gd" id="1_qxgdt"]
+
+[node name="root" type="Control" unique_id=1234128094]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_qxgdt")
+
+[node name="ui" type="Control" parent="." unique_id=1729478278]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="playbutton" type="Button" parent="ui" unique_id=185067830]
+layout_mode = 0
+offset_left = 317.0
+offset_top = 156.0
+offset_right = 358.0
+offset_bottom = 187.0
+text = "play"
