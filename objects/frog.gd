@@ -7,13 +7,44 @@ const JUMP_DURATION = 0.3 # How fast is the jump?
 
 # --- REFERENCES ---
 @onready var anim = $AnimatedSprite2D
+@onready var jump_sound = $JumpSound
+@onready var eat_sound = $EatSound
 
 # --- STATE ---
 var is_jumping = false
 var is_dead = false
 var last_direction = Vector2.ZERO # Remember where we faced last
+var jump_sounds = []  # Array to hold all jump sound files
+var eat_sounds = []  # Array to hold all eat sound files
 
 func _ready():
+	# Load all jump sounds from the sounds/frog/jump folder
+	var dir = DirAccess.open("res://asset/sounds/frog/jump")
+	if dir:
+		dir.list_dir_begin()
+		var file_name = dir.get_next()
+		while file_name != "":
+			# Load audio files (mp3, wav, ogg)
+			if file_name.ends_with(".mp3") or file_name.ends_with(".wav") or file_name.ends_with(".ogg"):
+				var audio = load("res://asset/sounds/frog/jump/" + file_name)
+				if audio:
+					jump_sounds.append(audio)
+			file_name = dir.get_next()
+		dir.list_dir_end()
+	
+	# Load eat sounds from frog/eat folder
+	var eat_dir = DirAccess.open("res://asset/sounds/frog/eat")
+	if eat_dir:
+		eat_dir.list_dir_begin()
+		var eat_file = eat_dir.get_next()
+		while eat_file != "":
+			if eat_file.ends_with(".mp3") or eat_file.ends_with(".wav") or eat_file.ends_with(".ogg"):
+				var audio = load("res://asset/sounds/frog/eat/" + eat_file)
+				if audio:
+					eat_sounds.append(audio)
+			eat_file = eat_dir.get_next()
+		eat_dir.list_dir_end()
+	
 	# Start facing down
 	last_direction = Vector2.DOWN
 	play_idle_animation()
@@ -50,6 +81,11 @@ func handle_input():
 
 func jump_to(dir: Vector2):
 	is_jumping = true
+	
+	# Play random jump sound from the loaded sounds
+	if jump_sound and jump_sounds.size() > 0:
+		jump_sound.stream = jump_sounds.pick_random()
+		jump_sound.play()
 	
 	# 1. Calculate Target
 	var start_pos = position
@@ -193,3 +229,9 @@ func bounce_back():
 		last_direction = Vector2(1, 0) # Default right if stationary
 	
 	jump_to(-last_direction)
+
+func play_eat_sound():
+	# Called by Fly when collected
+	if eat_sound and eat_sounds.size() > 0:
+		eat_sound.stream = eat_sounds.pick_random()
+		eat_sound.play()

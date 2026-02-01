@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://b6jxi22nb480j" path="res://levels/maze.gd" id="1_kese7"]
 [ext_resource type="PackedScene" uid="uid://ckbt5nxe2g630" path="res://objects/Frog.tscn" id="2_1cbvb"]
 [ext_resource type="Texture2D" path="res://asset/Pozadina.png" id="3_bg"]
+[ext_resource type="AudioStream" path="res://asset/sounds/background/BackgroundMusic.mp3" id="4_music"]
 
 [node name="Maze" type="Node2D" unique_id=1807114666]
 script = ExtResource("1_kese7")
@@ -11,5 +12,9 @@ script = ExtResource("1_kese7")
 z_index = -100
 centered = false
 texture = ExtResource("3_bg")
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_music")
+autoplay = true
 
 [node name="Frog" parent="." unique_id=1998889452 instance=ExtResource("2_1cbvb")]

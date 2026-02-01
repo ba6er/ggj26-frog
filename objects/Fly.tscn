@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://doujhdkmhs5dr" path="res://objects/Fly.gd" id="1_4y2md"]
 [ext_resource type="Texture2D" uid="uid://c86qxlsjg14tr" path="res://asset/muha_sheet.png" id="2_mdvdw"]
+[ext_resource type="AudioStream" uid="uid://bs2cnprxl1coj" path="res://asset/sounds/muha/Muha.wav" id="3_muha"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4y2md"]
 
@@ -98,3 +99,6 @@ shape = SubResource("RectangleShape2D_4y2md")
 
 [node name="FlySprite" type="AnimatedSprite2D" parent="." unique_id=1151035194]
 sprite_frames = SubResource("SpriteFrames_4y2md")
+
+[node name="FlySound" type="AudioStreamPlayer" parent="." unique_id=631539691]
+stream = ExtResource("3_muha")

@@ -1,6 +1,7 @@
 extends Area2D
 
 @onready var sprite = $FlySprite
+@onready var sound = $FlySound
 
 func _ready():
 	# 1. Tell the manager "I exist"
@@ -15,5 +16,9 @@ func _on_body_entered(body):
 		# 3. Tell manager "I was caught"
 		GameManager.collect_fly()
 		
-		# 4. Disappear
+		# 4. Frog plays eating sound
+		if body.has_method("play_eat_sound"):
+			body.play_eat_sound()
+		
+		# 5. Disappear immediately (don't wait for sound)
 		queue_free()

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cw4j2h7qns5md"
+path="res://.godot/imported/20260201 120230.wav-5d688a02287b0d2d5f58e83a680ee869.sample"
+
+[deps]
+
+source_file="res://asset/sounds/frog/jump/20260201 120230.wav"
+dest_files=["res://.godot/imported/20260201 120230.wav-5d688a02287b0d2d5f58e83a680ee869.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

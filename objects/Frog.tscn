@@ -374,3 +374,7 @@ animation = &"idle_up"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1694386793]
 shape = SubResource("RectangleShape2D_4u256")
+
+[node name="JumpSound" type="AudioStreamPlayer" parent="." unique_id=1575595870]
+
+[node name="EatSound" type="AudioStreamPlayer" parent="." unique_id=683231351]

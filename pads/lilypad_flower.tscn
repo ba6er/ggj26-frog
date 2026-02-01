@@ -5,4 +5,7 @@
 
 [node name="Lilypad" unique_id=1036693768 instance=ExtResource("1_base")]
 script = ExtResource("2_flower")
-spawn_weight = 10.0
+spawn_weight = 0.05
+
+[node name="Sprite" parent="." index="1" unique_id=635473363]
+animation = &"shaking"

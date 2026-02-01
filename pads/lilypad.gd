@@ -71,8 +71,11 @@ func start_shaking():
 			anim_sprite.play("shaking")
 			# After 0.5 seconds, switch to more intense shaking
 			await get_tree().create_timer(0.5).timeout
-			if is_shaking and anim_sprite is AnimatedSprite2D and anim_sprite.sprite_frames.has_animation("more_shaking"):
-				anim_sprite.play("more_shaking")
+			if is_shaking and anim_sprite is AnimatedSprite2D:
+				if anim_sprite.sprite_frames.has_animation("more_shaking"):
+					anim_sprite.play("more_shaking")
+				else:
+					print("DEBUG: Animation 'more_shaking' not found on pad: ", name)
 
 func stop_shaking():
 	is_shaking = false
