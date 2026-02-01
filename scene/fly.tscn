@@ -2,9 +2,20 @@
 
 [ext_resource type="Script" uid="uid://bhp14gc4qnoxi" path="res://scene/fly.gd" id="1_ry56p"]
 [ext_resource type="Texture2D" uid="uid://bqkcs48te7lq4" path="res://asset/fly.png" id="2_38lmm"]
+[ext_resource type="Texture2D" uid="uid://cppxd6mbuo7ja" path="res://asset/shadow.png" id="3_38lmm"]
 
 [node name="fly" type="Node2D" unique_id=1138474140]
+z_index = 5
+z_as_relative = false
 script = ExtResource("1_ry56p")
+amplitude = 3
 
 [node name="sprite" type="Sprite2D" parent="." unique_id=204250253]
+z_index = 1
 texture = ExtResource("2_38lmm")
+
+[node name="shadow" type="Sprite2D" parent="." unique_id=925440702]
+modulate = Color(1, 1, 1, 0.43137255)
+position = Vector2(0, 20)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_38lmm")

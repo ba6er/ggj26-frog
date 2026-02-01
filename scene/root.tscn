@@ -1,21 +1,48 @@
 [gd_scene format=3 uid="uid://dfgrn6o536irk"]
 
 [ext_resource type="Script" uid="uid://vt3mqq8cft7i" path="res://scene/root.gd" id="1_qxgdt"]
+[ext_resource type="Texture2D" uid="uid://drlybkga06j5q" path="res://asset/button_play.png" id="2_iefuh"]
+[ext_resource type="Texture2D" uid="uid://bdmo2t8dhhmvk" path="res://asset/bg5.png" id="3_b8pkg"]
+[ext_resource type="Texture2D" uid="uid://cs16xu31rk7wq" path="res://asset/text_zhaba.png" id="4_b8pkg"]
 
 [node name="root" type="Control" unique_id=1234128094]
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_qxgdt")
 
 [node name="ui" type="Control" parent="." unique_id=1729478278]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="playbutton" type="Button" parent="ui" unique_id=185067830]
-layout_mode = 0
-offset_left = 317.0
-offset_top = 156.0
-offset_right = 358.0
-offset_bottom = 187.0
-text = "play"
+[node name="playbutton" type="TextureButton" parent="ui" unique_id=1738621635]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -82.0
+offset_top = 90.0
+offset_right = 82.0
+offset_bottom = 159.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("2_iefuh")
+
+[node name="bg" type="Sprite2D" parent="." unique_id=1563815359]
+z_index = -1
+texture = ExtResource("3_b8pkg")
+centered = false
+
+[node name="title" type="Sprite2D" parent="." unique_id=1799895296]
+z_index = 1
+position = Vector2(320, 150)
+texture = ExtResource("4_b8pkg")

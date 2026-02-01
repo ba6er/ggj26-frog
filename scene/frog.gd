@@ -14,13 +14,13 @@ var jump_transition: Array[Tween.TransitionType] = [
 	Tween.TRANS_EXPO,
 	Tween.TRANS_EXPO,
 	Tween.TRANS_BACK,
-	Tween.TRANS_BACK,
+	Tween.TRANS_EXPO,
 ]
 var jump_easings: Array[Tween.EaseType] = [
 	Tween.EASE_IN_OUT,
 	Tween.EASE_IN_OUT,
 	Tween.EASE_OUT,
-	Tween.EASE_IN,
+	Tween.EASE_IN_OUT,
 ]
 var jump_animation_names: Array[String] = [
 	"jump_left",
@@ -35,7 +35,8 @@ var idle_animation_names: Array[String] = [
 	"idle_down", # down
 ]
 
-@onready var sprite: AnimatedSprite2D = $sprite
+@onready var shadow := $shadow
+@onready var sprite := $sprite
 @onready var maze: LilyMaze = get_parent()
 
 func land_on_lily(lilytype: LilyPad.LilyType) -> void:
@@ -51,22 +52,23 @@ func land_on_lily(lilytype: LilyPad.LilyType) -> void:
 func try_to_move(new_dir: Direction) -> void:
 	if can_move == false:
 		return
-	var old_on_maze := on_maze
+	var new_on_maze := on_maze
 	
 	if new_dir == Direction.LEFT and on_maze.x > 0:
-		on_maze.x -= 1
+		new_on_maze.x -= 1
 	if new_dir == Direction.RIGHT and on_maze.x < maze.size.x - 1:
-		on_maze.x += 1
+		new_on_maze.x += 1
 	if new_dir == Direction.UP and on_maze.y > 0:
-		on_maze.y -= 1
+		new_on_maze.y -= 1
 	if new_dir == Direction.DOWN and on_maze.y < maze.size.y - 1:
-		on_maze.y += 1
+		new_on_maze.y += 1
 	dir = new_dir
 	
-	var new_pos := maze_pos_to_real_pos()
-	if new_pos == position:
+	var new_pos := Vector2(maze.gap.x * new_on_maze.x, maze.gap.y * new_on_maze.y)
+	if new_pos == position or maze.lily_pads[new_on_maze.y][new_on_maze.x].has_snake:
 		return
 	
+	maze.lily_pads[on_maze.y][on_maze.x].timer = 0
 	sprite.play(jump_animation_names[dir])
 	can_move = false
 	
@@ -76,13 +78,13 @@ func try_to_move(new_dir: Direction) -> void:
 	tw.tween_property(self, "position", new_pos, jump_duration)
 	await tw.finished
 	
-	maze.lily_pads[old_on_maze.y][old_on_maze.x].timer = 0
-	maze.set_fog(old_on_maze.x, old_on_maze.y, maze.max_fog)
-	maze.set_fog(on_maze.x, on_maze.y, 0)
+	maze.set_fog(on_maze.x, on_maze.y, maze.max_fog)
+	maze.set_fog(new_on_maze.x, new_on_maze.y, 0)
 	sprite.play(idle_animation_names[dir])
-	maze.try_eat_fly(on_maze)
+	maze.try_eat_fly(new_on_maze)
 	can_move = true
 	
+	on_maze = new_on_maze
 	land_on_lily(maze.get_lily_type_on(on_maze))
 
 func maze_pos_to_real_pos() -> Vector2:
@@ -96,13 +98,11 @@ func _ready() -> void:
 		sprite.sprite_frames.set_animation_speed(anim, 6 / jump_duration)
 
 func _process(delta: float) -> void:
-	if GameManager.world.state == World.GameState.LOSE:
-		queue_free()
-	
 	if GameManager.world.state != World.GameState.PLAY:
 		return
 	
-	maze.lily_pads[on_maze.y][on_maze.x].timer += delta
+	if can_move:
+		maze.lily_pads[on_maze.y][on_maze.x].timer += delta
 	
 	if Input.is_action_just_pressed("move_left"):
 		try_to_move(Direction.LEFT)

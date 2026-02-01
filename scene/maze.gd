@@ -4,6 +4,7 @@ class_name LilyMaze
 @export var size: Vector2i = Vector2i(7, 7)
 @export var gap: Vector2i = Vector2i(50, 50)
 
+const SNAKE_PREFAB := preload("res://scene/snake.tscn")
 const LILY_PREFAB := preload("res://scene/lilypad.tscn")
 const FLY_PREFAB := preload("res://scene/fly.tscn")
 var lily_pads: Array[Array]
@@ -20,6 +21,11 @@ func try_eat_fly(pos: Vector2i) -> void:
 		lily_pads[pos.y][pos.x].has_fly = false
 		lily_pads[pos.y][pos.x].get_child(2).queue_free()
 		GameManager.eat_fly()
+
+func reveal_fog() -> void:
+	for i in size.y:
+		for j in size.x:
+			lily_pads[i][j].fog.set_opacity(0)
 
 func set_fog(frog_x: int, frog_y: int, level: int) -> void:
 	var frog_left: int = max(frog_x - 1, 0)
@@ -41,17 +47,24 @@ func generate(input: Array[String]) -> void:
 			lp.position.x = j * gap.x
 			lp.position.y = i * gap.y
 			var ltype := int(input[i][j])
-			if ltype == 9:
-				frog.on_maze = Vector2i(j, i)
-				frog.position = frog.maze_pos_to_real_pos()
-				ltype = 0
-			lp.type = ltype
-			if (lp.type == LilyPad.LilyType.FLOWER):
+			if (ltype == LilyPad.LilyType.FLOWER):
 				var fly := FLY_PREFAB.instantiate() as LilyFly
-				fly.position.y = -16
+				fly.position.y = -20
 				lp.add_child(fly)
 				lp.has_fly = true
 				num_flies += 1
+			if ltype == 8:
+				var sn := SNAKE_PREFAB.instantiate() as Snake
+				sn.position.y -= 30
+				sn.on_maze = Vector2i(j, i)
+				lp.add_child(sn)
+				lp.has_snake = true
+				ltype = LilyPad.LilyType.FLOWER
+			if ltype == 9:
+				frog.on_maze = Vector2i(j, i)
+				frog.position = frog.maze_pos_to_real_pos()
+				ltype = LilyPad.LilyType.FLOWER
+			lp.type = ltype
 			lily_pads[i][j] = lp
 			add_child(lp)
 	set_fog(frog.on_maze.x, frog.on_maze.y, 0)

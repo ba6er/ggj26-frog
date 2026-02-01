@@ -2,12 +2,47 @@
 
 [ext_resource type="Script" uid="uid://de7gin32pjy8e" path="res://scene/frog.gd" id="1_av2mw"]
 [ext_resource type="Texture2D" uid="uid://dnxepalagm12j" path="res://asset/frog_idle_down.png" id="2_rhb51"]
+[ext_resource type="Texture2D" uid="uid://v0l7dxs6w31c" path="res://asset/frog_death.png" id="2_y42eu"]
 [ext_resource type="Texture2D" uid="uid://d27pudw6vg0bv" path="res://asset/idle_left.png" id="3_d5qa6"]
 [ext_resource type="Texture2D" uid="uid://c1vwu2tsptywo" path="res://asset/frog_jump_right.png" id="3_ofrq0"]
 [ext_resource type="Texture2D" uid="uid://d4ectg8xs8f7g" path="res://asset/frog_jump_left.png" id="3_xxmss"]
 [ext_resource type="Texture2D" uid="uid://bb8aajn1xov14" path="res://asset/idle_right.png" id="4_1eses"]
 [ext_resource type="Texture2D" uid="uid://drxwcaclcyflt" path="res://asset/frog_idle_up.png" id="5_f2xfh"]
+[ext_resource type="Texture2D" uid="uid://1fjjnimrhtt3" path="res://asset/frog_jump_down.png" id="7_ix5wc"]
 [ext_resource type="Texture2D" uid="uid://buebayqvlck4n" path="res://asset/frog_jump_up.png" id="8_c785v"]
+[ext_resource type="Texture2D" uid="uid://cppxd6mbuo7ja" path="res://asset/shadow.png" id="11_lhiaw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_prbyq"]
+atlas = ExtResource("2_y42eu")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yeapl"]
+atlas = ExtResource("2_y42eu")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ephl"]
+atlas = ExtResource("2_y42eu")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cjg4s"]
+atlas = ExtResource("2_y42eu")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gajgx"]
+atlas = ExtResource("2_y42eu")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wfsxv"]
+atlas = ExtResource("2_y42eu")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q7gf3"]
+atlas = ExtResource("2_y42eu")
+region = Rect2(288, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mfqx2"]
+atlas = ExtResource("2_y42eu")
+region = Rect2(336, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1eses"]
 atlas = ExtResource("2_rhb51")
@@ -94,8 +129,28 @@ atlas = ExtResource("5_f2xfh")
 region = Rect2(0, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x0ntc"]
-atlas = ExtResource("2_rhb51")
+atlas = ExtResource("7_ix5wc")
 region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i21s4"]
+atlas = ExtResource("7_ix5wc")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s4uuk"]
+atlas = ExtResource("7_ix5wc")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qr5sx"]
+atlas = ExtResource("7_ix5wc")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mlc3k"]
+atlas = ExtResource("7_ix5wc")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gjrq7"]
+atlas = ExtResource("7_ix5wc")
+region = Rect2(192, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ofrq0"]
 atlas = ExtResource("3_xxmss")
@@ -151,6 +206,35 @@ region = Rect2(0, 0, 48, 48)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ix5wc"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_prbyq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yeapl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ephl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cjg4s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gajgx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wfsxv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q7gf3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mfqx2")
+}],
+"loop": false,
+"name": &"death",
+"speed": 15.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_1eses")
@@ -237,8 +321,26 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_x0ntc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i21s4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s4uuk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qr5sx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mlc3k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gjrq7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i21s4")
 }],
-"loop": true,
+"loop": false,
 "name": &"jump_down",
 "speed": 5.0
 }, {
@@ -298,10 +400,19 @@ animations = [{
 }]
 
 [node name="frog" type="Node2D" unique_id=1608169639]
-z_index = 1
+z_index = 4
+z_as_relative = false
 script = ExtResource("1_av2mw")
 
 [node name="sprite" type="AnimatedSprite2D" parent="." unique_id=53290196]
 position = Vector2(0, -22)
 sprite_frames = SubResource("SpriteFrames_ix5wc")
-animation = &"idle_down"
+animation = &"jump_down"
+frame = 6
+frame_progress = 1.0
+
+[node name="shadow" type="Sprite2D" parent="." unique_id=8141802]
+modulate = Color(1, 1, 1, 0.43137255)
+z_index = -1
+position = Vector2(0, -2)
+texture = ExtResource("11_lhiaw")

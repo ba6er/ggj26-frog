@@ -8,12 +8,18 @@ enum LilyType {
 	FLOWER,
 }
 
+const TIMERS := [
+	Vector2(0.25, 1),
+	Vector2(100, 200),
+	Vector2(100, 200),
+	Vector2(800, 900),
+]
+
 const WATER_PREFAB := preload("res://scene/water.tscn")
 
 @export var type := LilyType.NORMAL
-@export var shake_time: float = 2
-@export var fall_time: float = 5
 
+var has_snake := false
 var has_fly := false
 var timer: float = 0.0
 
@@ -23,15 +29,15 @@ var timer: float = 0.0
 func _ready() -> void:
 	sprite.frame = type
 
-func _process(delta: float) -> void:
-	if timer > shake_time:
+func _process(_delta: float) -> void:
+	if timer > TIMERS[type].x:
 		sprite.position.x = sin(timer * 77) * 3
 		sprite.position.y = cos(timer * 37) * 2
-	if timer > fall_time:
+	if timer > TIMERS[type].y:
 		hide()
 		var splash := WATER_PREFAB.instantiate() as Splash
 		splash.position.x = position.x
 		splash.position.y = position.y - 20
-		timer = -100
+		timer = -10
 		get_parent().add_child(splash)
 		GameManager.player_die()

@@ -1,4 +1,4 @@
-extends Sprite2D
+extends AnimatedSprite2D
 class_name LilyFog
 
 static var num_opacity_levels: int = 2
@@ -9,3 +9,6 @@ func set_opacity(new_opacity: int) -> void:
 
 func _ready() -> void:
 	set_opacity(num_opacity_levels)
+	frame = randi() % 9
+	sprite_frames.set_animation_speed("default", randf_range(1, 3))
+	play("default")

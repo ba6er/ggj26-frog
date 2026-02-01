@@ -2,7 +2,11 @@
 
 [ext_resource type="PackedScene" uid="uid://bo7qwog74b74g" path="res://scene/maze.tscn" id="1_pjass"]
 [ext_resource type="Script" uid="uid://bhtx8oqgndbao" path="res://scene/world.gd" id="1_txmk2"]
-[ext_resource type="Texture2D" uid="uid://d6r11asd81y" path="res://asset/bg2.png" id="3_w4qq1"]
+[ext_resource type="Texture2D" uid="uid://dyaqu7wj66pbl" path="res://asset/text_loss.png" id="3_emkrx"]
+[ext_resource type="Texture2D" uid="uid://6jlqyhmf1k7p" path="res://asset/text_win.png" id="3_hcb8y"]
+[ext_resource type="Texture2D" uid="uid://bpx8lom848qak" path="res://asset/bg3.png" id="3_w4qq1"]
+[ext_resource type="Texture2D" uid="uid://d1s3pb0uwyqyv" path="res://asset/button_play_again.png" id="4_0tg4p"]
+[ext_resource type="Texture2D" uid="uid://baxyy67w1vw87" path="res://asset/button_next.png" id="4_y3jn2"]
 
 [node name="world" type="Node2D" unique_id=1405661508]
 script = ExtResource("1_txmk2")
@@ -12,7 +16,7 @@ position = Vector2(170, 36)
 gap = Vector2i(50, 48)
 
 [node name="ui" type="Control" parent="." unique_id=1037924726]
-z_index = 5
+z_index = 10
 z_as_relative = false
 custom_minimum_size = Vector2(640, 360)
 layout_mode = 3
@@ -22,58 +26,64 @@ offset_bottom = 360.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="win_display" type="VBoxContainer" parent="ui" unique_id=1933346337]
+[node name="win_display" type="Control" parent="ui" unique_id=1143232198]
+custom_minimum_size = Vector2(128, 64)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_group_ = true
+
+[node name="win_label" type="Sprite2D" parent="ui/win_display" unique_id=821789159]
+position = Vector2(320, 160)
+texture = ExtResource("3_hcb8y")
+
+[node name="next_level" type="TextureButton" parent="ui/win_display" unique_id=1190145797]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -119.0
+offset_top = 90.0
+offset_right = 119.0
+offset_bottom = 159.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("4_y3jn2")
+
+[node name="lose_display" type="Control" parent="ui" unique_id=1870456817]
 visible = false
 custom_minimum_size = Vector2(128, 64)
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -64.0
-offset_top = -32.0
-offset_right = 64.0
-offset_bottom = 32.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-alignment = 1
 metadata/_edit_group_ = true
 
-[node name="win_label" type="Label" parent="ui/win_display" unique_id=263376754]
-layout_mode = 2
-size_flags_horizontal = 4
-text = "you win"
+[node name="lose_label" type="Sprite2D" parent="ui/lose_display" unique_id=904268819]
+position = Vector2(320, 160)
+texture = ExtResource("3_emkrx")
 
-[node name="next_level" type="Button" parent="ui/win_display" unique_id=1926511878]
-layout_mode = 2
-text = "next level"
-
-[node name="lose_display" type="VBoxContainer" parent="ui" unique_id=389655057]
-custom_minimum_size = Vector2(128, 64)
+[node name="restart_level" type="TextureButton" parent="ui/lose_display" unique_id=1873188930]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -30.5
-offset_top = -29.0
-offset_right = 30.5
-offset_bottom = 29.0
+offset_left = -119.0
+offset_top = 90.0
+offset_right = 119.0
+offset_bottom = 159.0
 grow_horizontal = 2
 grow_vertical = 2
-metadata/_edit_group_ = true
-
-[node name="lose_label" type="Label" parent="ui/lose_display" unique_id=610125977]
-layout_mode = 2
-size_flags_horizontal = 4
-text = "you lose"
-
-[node name="restart_level" type="Button" parent="ui/lose_display" unique_id=641074808]
-layout_mode = 2
-text = "restart
-"
+texture_normal = ExtResource("4_0tg4p")
 
 [node name="bg" type="Sprite2D" parent="." unique_id=488846691]
 z_index = -1

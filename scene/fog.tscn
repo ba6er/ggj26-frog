@@ -3,9 +3,61 @@
 [ext_resource type="Texture2D" uid="uid://byvo3yvt7iuey" path="res://asset/fog.png" id="1_sj1sy"]
 [ext_resource type="Script" uid="uid://drcgtaukkowfo" path="res://scene/fog.gd" id="2_sj1sy"]
 
-[node name="fog" type="Sprite2D" unique_id=1563435891]
-modulate = Color(1, 1, 1, 0)
-z_index = 2
+[sub_resource type="AtlasTexture" id="AtlasTexture_sj1sy"]
+atlas = ExtResource("1_sj1sy")
+region = Rect2(0, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_62voc"]
+atlas = ExtResource("1_sj1sy")
+region = Rect2(50, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tl2ie"]
+atlas = ExtResource("1_sj1sy")
+region = Rect2(100, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_62cqr"]
+atlas = ExtResource("1_sj1sy")
+region = Rect2(150, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w05mr"]
+atlas = ExtResource("1_sj1sy")
+region = Rect2(200, 0, 50, 50)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uybr6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sj1sy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_62voc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tl2ie")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_62cqr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w05mr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_62cqr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tl2ie")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_62voc")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="fog" type="AnimatedSprite2D" unique_id=1671270092]
+modulate = Color(0.78431374, 0.78431374, 0.9019608, 1)
+z_index = 8
 z_as_relative = false
-texture = ExtResource("1_sj1sy")
+sprite_frames = SubResource("SpriteFrames_uybr6")
 script = ExtResource("2_sj1sy")
