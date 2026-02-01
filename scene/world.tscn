@@ -11,9 +11,6 @@ script = ExtResource("1_txmk2")
 position = Vector2(170, 36)
 gap = Vector2i(50, 48)
 
-[node name="frog" parent="maze" index="0" unique_id=1608169639]
-on_maze = Vector2i(3, 3)
-
 [node name="ui" type="Control" parent="." unique_id=1037924726]
 z_index = 5
 z_as_relative = false
@@ -26,6 +23,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="win_display" type="VBoxContainer" parent="ui" unique_id=1933346337]
+visible = false
 custom_minimum_size = Vector2(128, 64)
 layout_mode = 1
 anchors_preset = 8
@@ -52,6 +50,7 @@ layout_mode = 2
 text = "next level"
 
 [node name="lose_display" type="VBoxContainer" parent="ui" unique_id=389655057]
+custom_minimum_size = Vector2(128, 64)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -64,19 +63,20 @@ offset_right = 30.5
 offset_bottom = 29.0
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_group_ = true
+
+[node name="lose_label" type="Label" parent="ui/lose_display" unique_id=610125977]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "you lose"
 
 [node name="restart_level" type="Button" parent="ui/lose_display" unique_id=641074808]
 layout_mode = 2
 text = "restart
 "
 
-[node name="lose_label" type="Label" parent="ui/lose_display" unique_id=610125977]
-layout_mode = 2
-
 [node name="bg" type="Sprite2D" parent="." unique_id=488846691]
 z_index = -1
 texture = ExtResource("3_w4qq1")
 centered = false
 metadata/_edit_lock_ = true
-
-[editable path="maze"]

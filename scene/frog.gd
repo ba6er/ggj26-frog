@@ -3,6 +3,8 @@ class_name Frog
 
 enum Direction {LEFT, RIGHT, UP, DOWN}
 
+const BLOOD_PREFAB := preload("res://scene/blood.tscn")
+
 @export var jump_duration: float = 0.6
 @export var on_maze: Vector2i = Vector2i(0, 0)
 @export var dir: Direction = Direction.DOWN
@@ -40,7 +42,10 @@ func land_on_lily(lilytype: LilyPad.LilyType) -> void:
 	if lilytype == LilyPad.LilyType.ICE:
 		try_to_move(dir)
 	if lilytype == LilyPad.LilyType.SPIKE:
-		# die
+		var splash := BLOOD_PREFAB.instantiate() as Splash
+		splash.position.x = position.x
+		splash.position.y = position.y - 30
+		get_parent().add_child(splash)
 		GameManager.player_die()
 
 func try_to_move(new_dir: Direction) -> void:
@@ -71,6 +76,7 @@ func try_to_move(new_dir: Direction) -> void:
 	tw.tween_property(self, "position", new_pos, jump_duration)
 	await tw.finished
 	
+	maze.lily_pads[old_on_maze.y][old_on_maze.x].timer = 0
 	maze.set_fog(old_on_maze.x, old_on_maze.y, maze.max_fog)
 	maze.set_fog(on_maze.x, on_maze.y, 0)
 	sprite.play(idle_animation_names[dir])
@@ -89,9 +95,14 @@ func _ready() -> void:
 	for anim in jump_animation_names:
 		sprite.sprite_frames.set_animation_speed(anim, 6 / jump_duration)
 
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
+	if GameManager.world.state == World.GameState.LOSE:
+		queue_free()
+	
 	if GameManager.world.state != World.GameState.PLAY:
 		return
+	
+	maze.lily_pads[on_maze.y][on_maze.x].timer += delta
 	
 	if Input.is_action_just_pressed("move_left"):
 		try_to_move(Direction.LEFT)

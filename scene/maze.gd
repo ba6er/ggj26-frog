@@ -37,12 +37,17 @@ func generate(input: Array[String]) -> void:
 	for i in size.y:
 		lily_pads[i].resize(size.x)
 		for j in size.x:
-			var lp = LILY_PREFAB.instantiate() as LilyPad
+			var lp := LILY_PREFAB.instantiate() as LilyPad
 			lp.position.x = j * gap.x
 			lp.position.y = i * gap.y
-			lp.type = int(input[i][j])
+			var ltype := int(input[i][j])
+			if ltype == 9:
+				frog.on_maze = Vector2i(j, i)
+				frog.position = frog.maze_pos_to_real_pos()
+				ltype = 0
+			lp.type = ltype
 			if (lp.type == LilyPad.LilyType.FLOWER):
-				var fly = FLY_PREFAB.instantiate() as LilyFly
+				var fly := FLY_PREFAB.instantiate() as LilyFly
 				fly.position.y = -16
 				lp.add_child(fly)
 				lp.has_fly = true
